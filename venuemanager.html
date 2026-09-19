@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Venue Manager — a live multi-tenant SaaS, built end to end | Prashant Anand</title>
-<meta name="description" content="Case study: Venue Manager (venuemanager.pro), a multi-tenant SaaS for event venue operators — Next.js, Supabase RLS, Stripe, an Inngest-backed vendor agent on Claude, and 40+ Playwright specs. Built end to end by Prashant Anand." />
+<meta name="description" content="Case study: Venue Manager (venuemanager.pro), a multi-tenant SaaS for event venue operators — Next.js, Supabase RLS, Stripe, an Inngest-backed vendor agent on Claude, and 167 Playwright tests across 28 spec files. Built end to end by Prashant Anand." />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>P</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -126,7 +126,7 @@
         <td>Split by job: reasoning-heavy outreach on Claude, high-volume visitor chat on the inexpensive model</td></tr>
       <tr><td>Documents</td><td>pdf-lib</td>
         <td>Proposals generated server-side, accepted through public token URLs</td></tr>
-      <tr><td>Tests</td><td>Playwright, 40+ specs</td>
+      <tr><td>Tests</td><td>Playwright, 167 tests across 28 spec files</td>
         <td>Includes multi-tenant isolation checks, not just happy paths</td></tr>
     </table>
 
@@ -152,7 +152,7 @@
 
     <h2>What is actually shipped</h2>
     <ul>
-      <li>Roughly 1,000 files; 40+ Playwright end-to-end specs; database schema with RLS policies in version control.</li>
+      <li>Roughly 1,000 files; 167 Playwright end-to-end tests across 28 spec files; database schema with RLS policies in version control.</li>
       <li>Three scheduled jobs (agent monitor, webhook processing, trial expiry) and full Stripe subscription lifecycle:
         trial → paid → portal → plan limits → usage metering → AppSumo redemption path (built, not launched).</li>
       <li>A seeded demonstration workspace, so the product can be reviewed without creating an account.</li>
@@ -174,7 +174,7 @@
       multi-tenant AI product alone. So I built Venue Manager: Next.js with Postgres row-level security for tenant
       isolation, Stripe for the subscription lifecycle, an Inngest-backed vendor-outreach agent on Claude with a
       queryable state machine, and public venue pages with an embedded AI assistant that captures leads on the cheap
-      model. Forty-plus Playwright specs, including tenant-isolation checks. It has no customers — that was never the
+      model. 167 Playwright end-to-end tests across 28 spec files, including tenant-isolation checks. It has no customers — that was never the
       point; the point is that every layer, from the RLS policy to the agent's state transitions, is something I have
       personally built and operated.”
     </blockquote>
