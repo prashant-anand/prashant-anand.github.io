@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Venue Manager — a live multi-tenant SaaS, built end to end | Prashant Anand</title>
+<meta name="description" content="Case study: Venue Manager (venuemanager.pro), a multi-tenant SaaS for event venue operators — Next.js, Supabase RLS, Stripe, an Inngest-backed vendor agent on Claude, and 40+ Playwright specs. Built end to end by Prashant Anand." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>P</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg-elevated: #ffffff; --text: #1c1a17; --text-muted: #6b6660;
+    --text-faint: #96908a; --border: #e6e2dc; --accent: #2f4538; --accent-soft: #eef1ec;
+    --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --max-w: 720px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161513; --bg-elevated: #1d1c19; --text: #ece9e4; --text-muted: #a8a29a;
+      --text-faint: #726d66; --border: #322f2a; --accent: #9fc7ac; --accent-soft: #23271f;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: var(--sans); line-height: 1.65; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+  header.doc-head { padding: 56px 0 28px; border-bottom: 1px solid var(--border); }
+  .back { font-size: 14px; color: var(--text-muted); }
+  h1 {
+    font-family: var(--serif); font-weight: 500; font-size: 34px; line-height: 1.2;
+    margin: 18px 0 10px; letter-spacing: -0.01em;
+  }
+  .lede { color: var(--text-muted); font-size: 17px; margin: 0; }
+  .meta-line { margin-top: 16px; font-size: 14px; color: var(--text-faint); }
+  .meta-line a { color: var(--text-muted); text-decoration: underline; }
+  main { padding: 34px 0 72px; }
+  h2 {
+    font-family: var(--serif); font-weight: 500; font-size: 23px; margin: 38px 0 10px;
+    letter-spacing: -0.005em;
+  }
+  h3 { font-size: 16px; margin: 24px 0 6px; }
+  p { margin: 0 0 14px; }
+  ul, ol { margin: 0 0 16px; padding-left: 22px; }
+  li { margin-bottom: 7px; }
+  .callout {
+    background: var(--accent-soft); border-left: 2px solid var(--accent);
+    padding: 14px 16px; margin: 22px 0; font-size: 15px; border-radius: 0 4px 4px 0;
+  }
+  table { width: 100%; border-collapse: collapse; margin: 18px 0 22px; font-size: 14.5px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { font-weight: 600; color: var(--text-muted); font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13.5px;
+    background: var(--accent-soft); padding: 1px 5px; border-radius: 3px;
+  }
+  blockquote {
+    margin: 22px 0; padding-left: 16px; border-left: 2px solid var(--border);
+    color: var(--text-muted); font-style: italic;
+  }
+  footer { border-top: 1px solid var(--border); padding: 22px 0 40px; font-size: 14px; color: var(--text-muted); }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .btn {
+    border: 1px solid var(--border); border-radius: 6px; padding: 8px 14px; font-size: 14.5px;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn:hover { border-color: var(--accent); text-decoration: none; }
+</style>
+</head>
+<body>
+<header class="doc-head">
+  <div class="wrap">
+    <a class="back" href="/">← Prashant Anand</a>
+    <h1>Venue Manager: a live multi-tenant SaaS, built end to end</h1>
+    <p class="lede">The only product in this portfolio that is actually running in production. I built it alone —
+      product definition, architecture, implementation, tests, deployment — to prove I could take a
+      multi-tenant AI product the whole way.</p>
+    <p class="meta-line">
+      Live: <a href="https://venuemanager.pro" target="_blank" rel="noopener">venuemanager.pro</a> ·
+      Code: <a href="https://github.com/samisen-io/venue-assistant-saas" target="_blank" rel="noopener">samisen-io/venue-assistant-saas</a>
+    </p>
+    <div class="actions">
+      <a class="btn" href="https://venuemanager.pro/pricing" target="_blank" rel="noopener">Open the live product →</a>
+      <a class="btn" href="https://github.com/samisen-io/venue-assistant-saas" target="_blank" rel="noopener">Read the code</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h2>What it is</h2>
+    <p>Software for people who run event venues — hotels, banquet halls, conference centres. Three things, in the
+      order a venue manager actually needs them:</p>
+    <ol>
+      <li><strong>Run the operation.</strong> Events, spaces, vendors, clients, budgets, proposals and quotes, on a
+        multi-venue model with per-tenant data isolation.</li>
+      <li><strong>Pick and manage vendors.</strong> A weighted matching engine (reliability 40%, cost fit 30%,
+        experience 20%, on-time history 10%) with post-event reviews feeding the scores back.</li>
+      <li><strong>Win the business.</strong> A public venue page builder — SEO-friendly pages with galleries, spaces,
+        pricing and an availability calendar — with an embedded AI assistant that answers visitor questions and turns
+        them into tracked leads.</li>
+    </ol>
+    <div class="callout">
+      The third part is the one I would defend hardest: it is where the product stops being an internal tool and
+      starts producing demand for the customer.
+    </div>
+
+    <h2>Stack, and why</h2>
+    <table>
+      <tr><th>Layer</th><th>Choice</th><th>Reasoning</th></tr>
+      <tr><td>App</td><td>Next.js 16 (App Router), TypeScript strict</td>
+        <td>Server components for the public pages (SEO, speed); client components only where interaction demands it</td></tr>
+      <tr><td>Data / auth</td><td>Supabase (Postgres, RLS, Auth)</td>
+        <td>Tenant isolation enforced at the database, not in application code</td></tr>
+      <tr><td>Payments</td><td>Stripe subscriptions + customer portal</td>
+        <td>Plan limits and usage metering enforced in one place</td></tr>
+      <tr><td>Background work</td><td>Inngest + 3 Vercel cron jobs</td>
+        <td>Agent runs, outreach, webhook processing, trial expiry</td></tr>
+      <tr><td>AI</td><td>Claude SDK (vendor agent), a cheap model (public-page chat)</td>
+        <td>Split by job: reasoning-heavy outreach on Claude, high-volume visitor chat on the inexpensive model</td></tr>
+      <tr><td>Documents</td><td>pdf-lib</td>
+        <td>Proposals generated server-side, accepted through public token URLs</td></tr>
+      <tr><td>Tests</td><td>Playwright, 40+ specs</td>
+        <td>Includes multi-tenant isolation checks, not just happy paths</td></tr>
+    </table>
+
+    <h2>The three decisions worth talking about</h2>
+
+    <h3>1. Tenant isolation at the database layer</h3>
+    <p>Every table carries row-level security policies. The browser client can only ever see its own rows, and the
+      service-role key never leaves the server. Application code cannot accidentally leak another venue's data because
+      it does not hold the authority to do so. That is the difference between “we remembered to filter by user_id” and
+      “the database refuses.”</p>
+
+    <h3>2. The vendor agent is a state machine, not a prompt</h3>
+    <p>Outreach moves through explicit states per vendor. Every execution writes an <code>agent_runs</code> row, every
+      message a <code>vendor_communications</code> row, every reply a <code>vendor_quotes</code> row — so a stalled or
+      wrong decision is inspectable afterwards instead of invisible. An Inngest monitor plus a six-hourly cron check
+      agent health. I deliberately did not build one large prompt that does everything.</p>
+
+    <h3>3. Public pages are first-class citizens of the render path</h3>
+    <p>They live at the site root, with their own dynamic metadata, JSON-LD (<code>EventVenue</code> +
+      <code>LocalBusiness</code>), a dynamic sitemap and explicit robots rules. Demonstration workspaces are detected,
+      banner-labelled and excluded from indexing — so sample data can never be mistaken for a real business in search
+      results. Getting that boundary right was part of shipping the feature, not an afterthought.</p>
+
+    <h2>What is actually shipped</h2>
+    <ul>
+      <li>Roughly 1,000 files; 40+ Playwright end-to-end specs; database schema with RLS policies in version control.</li>
+      <li>Three scheduled jobs (agent monitor, webhook processing, trial expiry) and full Stripe subscription lifecycle:
+        trial → paid → portal → plan limits → usage metering → AppSumo redemption path (built, not launched).</li>
+      <li>A seeded demonstration workspace, so the product can be reviewed without creating an account.</li>
+    </ul>
+
+    <h2>What I did not build — and would say so in an interview</h2>
+    <ul>
+      <li><strong>No paying customers.</strong> It is a working product, not a business with revenue. I built it to take
+        a multi-tenant AI product end to end by myself, and that is the value I claim from it.</li>
+      <li><strong>The agent has no eval harness.</strong> Agent behaviour is inspectable but not scored. If I continued,
+        an offline eval set with regression runs would come before any new agent capability. This is the gap I would
+        fix first.</li>
+      <li><strong>The companion leads product is not deployed</strong> — the public-page engine lives inside the main app.</li>
+    </ul>
+
+    <h2>The 90-second version</h2>
+    <blockquote>
+      “I run an event-tech company, and I wanted to prove to myself that I could design, build, deploy and test a
+      multi-tenant AI product alone. So I built Venue Manager: Next.js with Postgres row-level security for tenant
+      isolation, Stripe for the subscription lifecycle, an Inngest-backed vendor-outreach agent on Claude with a
+      queryable state machine, and public venue pages with an embedded AI assistant that captures leads on the cheap
+      model. Forty-plus Playwright specs, including tenant-isolation checks. It has no customers — that was never the
+      point; the point is that every layer, from the RLS policy to the agent's state transitions, is something I have
+      personally built and operated.”
+    </blockquote>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><a href="/">← Back to prashant-anand.github.io</a> · <a href="https://venuemanager.pro" target="_blank" rel="noopener">venuemanager.pro</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -362,13 +362,24 @@
 
     <div class="project">
       <div class="project-body">
-        <p class="project-name">Venue Manager — multi-tenant SaaS for venue operations</p>
-        <p>Next.js App Router product for venue managers: events, vendors, budget variance, an AI layer behind a
-          single Claude interface. Tenant isolation enforced in the database with row-level security, and 31
-          Playwright specs that assert the boundaries as well as the flows.</p>
-        <p class="project-meta">Next.js · TypeScript · Supabase RLS · Claude · Playwright</p>
+        <p class="project-name">Venue Manager — a live multi-tenant SaaS for venue operations</p>
+        <p>Running in production at <a href="https://venuemanager.pro" target="_blank" rel="noopener">venuemanager.pro</a>:
+          events, vendors, budget variance, proposals, and public venue pages with an embedded AI assistant that captures
+          leads. Tenant isolation is enforced in the database with row-level security; the vendor-outreach agent runs on
+          Claude behind Inngest with a queryable state machine; Stripe carries the subscription lifecycle. 40+ Playwright
+          specs assert the tenant boundaries as well as the flows. No paying customers — I built it to take the whole stack
+          end to end alone, and the case study says so plainly.</p>
+        <p class="project-meta">Next.js 16 · TypeScript · Supabase RLS · Stripe · Inngest · Claude · Playwright</p>
       </div>
       <div class="project-actions">
+        <a class="project-link" href="https://venuemanager.pro" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 1H3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9.5h-2V13H3V3h3.5V1Z"/><path d="M9 1v2h2.6L6.3 8.3l1.4 1.4L13 4.4V7h2V1H9Z"/></svg>
+          Live
+        </a>
+        <a class="project-link" href="/venuemanager.html">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5h4v2H3.5v9h9V9.5h2V14a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2.5a1 1 0 0 1 1-1Z"/><path d="M9 1v2h2.6L6.3 8.3l1.4 1.4L13 4.4V7h2V1H9Z"/></svg>
+          Case study
+        </a>
         <a class="project-link" href="https://github.com/samisen-io/venue-assistant-saas" target="_blank" rel="noopener">
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
           Code
