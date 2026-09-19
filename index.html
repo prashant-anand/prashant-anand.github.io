@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Prashant Anand — Engineering Leader</title>
-<meta name="description" content="Prashant Anand — Engineering leader with 18+ years building and scaling cloud-native SaaS and AI platforms. Co-Founder at Fast Party, Director & Founder at Samisen Distributed Technologies." />
+<title>Prashant Anand — Principal Engineer / Architect, GenAI</title>
+<meta name="description" content="Prashant Anand — principal engineer and architect implementing GenAI in production: LLM agents, RAG, evaluation and observability. 18+ years across .NET/Azure and TypeScript, 13 of them inside a US-headquartered enterprise." />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>P</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -142,6 +142,12 @@
     font-size: 24px;
     margin: 0 0 28px;
   }
+  .section-note {
+    font-size: 14.5px;
+    color: var(--text-muted);
+    margin: -18px 0 28px;
+    max-width: 66ch;
+  }
 
   .entry { margin-bottom: 34px; }
   .entry:last-child { margin-bottom: 0; }
@@ -203,10 +209,14 @@
     border-radius: 10px;
     background: var(--bg-elevated);
     margin-bottom: 14px;
+    flex-wrap: wrap;
   }
   .project:last-child { margin-bottom: 0; }
+  .project-body { flex: 1 1 320px; }
   .project-name { font-weight: 600; font-size: 15.5px; margin: 0 0 4px; }
   .project p { margin: 0; color: var(--text-muted); font-size: 14.5px; }
+  .project-meta { font-size: 13px; color: var(--text-faint); margin-top: 6px; }
+  .project-actions { display: flex; gap: 8px; flex-wrap: wrap; }
   .project-link {
     display: inline-flex;
     align-items: center;
@@ -221,6 +231,17 @@
   }
   .project-link svg { width: 15px; height: 15px; fill: currentColor; }
   .project-link:hover { border-color: var(--accent); text-decoration: none; color: var(--accent); }
+
+  .resume-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+  .resume-card {
+    flex: 1 1 260px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    background: var(--bg-elevated);
+  }
+  .resume-card .label { font-weight: 600; font-size: 15px; margin: 0 0 4px; }
+  .resume-card p { margin: 0 0 10px; font-size: 14px; color: var(--text-muted); }
 
   .edu-item { margin-bottom: 16px; font-size: 15px; }
   .edu-item:last-child { margin-bottom: 0; }
@@ -250,9 +271,10 @@
 <nav class="sections">
   <div class="wrap">
     <a href="#about">About</a>
+    <a href="#work">Selected work</a>
     <a href="#experience">Experience</a>
     <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
+    <a href="#resume">Resume</a>
     <a href="#education">Education</a>
     <a href="#contact">Contact</a>
   </div>
@@ -267,17 +289,18 @@
         <h1 style="margin-bottom: 0;">Prashant Anand</h1>
       </div>
     </div>
-    <p class="role">Engineering Leader — Cloud-Native SaaS &amp; AI Platforms</p>
+    <p class="role">Principal Engineer / Architect — GenAI, LLM Agents, RAG</p>
     <p class="summary">
-      18+ years building and leading high-performing engineering teams that deliver enterprise-grade,
-      cloud-native SaaS applications at scale. Hands-on technical depth in microservices, distributed
-      systems, and cloud platforms, paired with a US-based MBA and over a decade of leadership inside a
-      US-headquartered global enterprise.
+      18+ years building production software, the last four spent implementing GenAI systems: LLM agents with
+      multi-step orchestration, retrieval over vector search, and the evaluation and observability that make
+      non-deterministic behaviour trustworthy. I write code daily — LangChain/LangGraph and TypeScript/Next.js
+      services, .NET APIs on Azure, Python for the AI layer — and I have also built and led the teams that ship it.
     </p>
     <div class="links">
       <a href="mailto:prashantanand@outlook.com">prashantanand@outlook.com</a>
       <a href="https://linkedin.com/in/prashantanand" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/prashant-anand" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/samisen-io" target="_blank" rel="noopener">Open-source work</a>
     </div>
   </div>
 </header>
@@ -286,12 +309,133 @@
   <div class="wrap">
     <h2>About</h2>
     <p class="summary" style="max-width: 68ch;">
-      Proven track record owning delivery execution end-to-end — Agile planning, architecture guidance,
-      and cross-functional partnership with Product, UX, and Operations — while building engineering
-      capability through hiring, mentoring, and performance management. Currently co-founding an
-      AI-native SaaS platform and directing a bootstrapped software consulting firm serving US
-      mid-market and enterprise clients.
+      I started in .NET and ERP, spent thirteen years inside a US-headquartered enterprise building payment
+      platforms under PCI compliance and ending as Director of Technology with responsibility for an India
+      subsidiary and cross-border delivery, then founded a consultancy that put AI into production. Today I build
+      agentic systems: multi-step agents with tool calling, retrieval grounded in a customer's own content,
+      evaluation that catches regressions before users do, and cost and latency that stay inside budget.
     </p>
+    <p class="summary" style="max-width: 68ch; margin-bottom: 0;">
+      I am open to GenAI implementation roles — Architect, Principal Engineer, Associate Director or Director —
+      in Hyderabad or remote across India.
+    </p>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <h2>Selected work</h2>
+    <p class="section-note">Public source is the honest portfolio: full READMEs, tests where they exist, and a
+      stated list of limitations in each repository.</p>
+
+    <div class="project">
+      <div class="project-body">
+        <p class="project-name">VenueAssistant MCP</p>
+        <p>An MCP server in C#/.NET 10 that exposes venue and event operations as agent-callable tools —
+          vendor matching, budgeting, timelines, risk prediction — with the decision logic in unit-tested
+          calculators rather than in the model.</p>
+        <p class="project-meta">.NET 10 · ModelContextProtocol.AspNetCore · 10 tools · xUnit tests</p>
+      </div>
+      <div class="project-actions">
+        <a class="project-link" href="https://github.com/samisen-io/venue-assistant" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          Code
+        </a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-body">
+        <p class="project-name">Eventonaut API — RAG engine behind the Conference Assistant apps</p>
+        <p>FastAPI backend whose AI layer answers attendee questions from a conference's own content:
+          LangChain over Pinecone with one namespace per conference, conversational memory in Redis/Upstash,
+          streamed answers, and per-call token accounting.</p>
+        <p class="project-meta">Python · FastAPI · LangChain · Pinecone · OpenAI · Postgres</p>
+      </div>
+      <div class="project-actions">
+        <a class="project-link" href="https://github.com/samisen-io/eventonaut-api" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          Code
+        </a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-body">
+        <p class="project-name">Venue Manager — multi-tenant SaaS for venue operations</p>
+        <p>Next.js App Router product for venue managers: events, vendors, budget variance, an AI layer behind a
+          single Claude interface. Tenant isolation enforced in the database with row-level security, and 31
+          Playwright specs that assert the boundaries as well as the flows.</p>
+        <p class="project-meta">Next.js · TypeScript · Supabase RLS · Claude · Playwright</p>
+      </div>
+      <div class="project-actions">
+        <a class="project-link" href="https://github.com/samisen-io/venue-assistant-saas" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          Code
+        </a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-body">
+        <p class="project-name">MCP server for Azure Blob Storage</p>
+        <p>ASP.NET Core MCP server giving any agent a typed file API over an Azure Blob container — list,
+          upload, download, delete, exists — with tools discovered from attributes and failures returned as
+          readable text so an agent can recover instead of aborting.</p>
+        <p class="project-meta">ASP.NET Core (.NET 8) · ModelContextProtocol · Azure Blob Storage</p>
+      </div>
+      <div class="project-actions">
+        <a class="project-link" href="https://github.com/samisen-io/mcp-server-web" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          Code
+        </a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-body">
+        <p class="project-name">AIO Ready — is a site readable by AI answer engines?</p>
+        <p>An audit tool built on Claude that scores a page for how AI crawlers and answer engines read it,
+          behind a rate-limited endpoint and a small Express service.</p>
+        <p class="project-meta">Node.js · Express · Claude · Jest</p>
+      </div>
+      <div class="project-actions">
+        <a class="project-link" href="https://github.com/samisen-io/aio_ready" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          Code
+        </a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-body">
+        <p class="project-name">docagent</p>
+        <p>An agent that reads raw documents — PDF, DOCX, TXT, Excel — and turns them into structured data.
+          Early but honest: the README states exactly what works and what does not yet.</p>
+        <p class="project-meta">Python · in progress (phase 1a)</p>
+      </div>
+      <div class="project-actions">
+        <a class="project-link" href="https://github.com/prashant-anand/docagent" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          Code
+        </a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-body">
+        <p class="project-name">UniCoach</p>
+        <p>Profile-building platform for university applications — activity tracking, evidence, AI-matched
+          opportunities.</p>
+        <p class="project-meta">Next.js 15 · Supabase · Claude · Stripe</p>
+      </div>
+      <div class="project-actions">
+        <a class="project-link" href="https://github.com/prashant-anand/unicoach" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          Code
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -301,27 +445,39 @@
 
     <div class="entry">
       <div class="entry-head">
-        <span><span class="entry-title">Co-Founder</span> · <span class="entry-org">Fast Party</span> (fastparty.ai)</span>
+        <span><span class="entry-title">Tech Co-Founder</span> · <span class="entry-org">Fast Party</span> (fastparty.ai)</span>
         <span class="entry-date">Jan 2024 – Present · Hyderabad, India</span>
       </div>
       <ul>
-        <li>Lead engineering delivery for an AI-native, cloud-native SaaS platform across iOS, Android, and Web, architecting on AWS EKS, MongoDB Atlas, Next.js, and GraphQL/Apollo APIs.</li>
-        <li>Partner directly with Product and UX to translate roadmap priorities into engineering plans, running Agile delivery cycles from planning through release.</li>
-        <li>Engineered a production-ready conversational AI concierge (“Antsy”) and led integration with the ChatGPT Model Context Protocol (MCP) server ecosystem using TypeScript — among the first event platforms live in ChatGPT via MCP.</li>
-        <li>Led architectural security hardening and root-cause remediation following a targeted RCE vulnerability identification, reinforcing a quality-first approach to production readiness.</li>
+        <li>Architected and shipped an AI-native, cloud-native SaaS platform across iOS, Android and Web on
+          Next.js/React, React Native, Node.js, MongoDB Atlas and AWS EKS, with GraphQL/Apollo APIs.</li>
+        <li>Built <em>Antsy</em>, a production conversational AI concierge: stateful multi-step agent graphs in
+          LangChain/LangGraph with tool calling and RAG over event data, monitored and calibrated with LangSmith
+          tracing, latency and token-cost tracking, and regression evals before each release.</li>
+        <li>Led the ChatGPT Model Context Protocol (MCP) server integration in TypeScript — among the first event
+          platforms live in ChatGPT via MCP.</li>
+        <li>Led the team's move to spec-driven development with AI coding agents as first-class teammates. The
+          change was structural rather than cosmetic: the team peaked at 12 across engineering, product and
+          design, and as people moved on the roles were not backfilled — delivery continued on a leaner team.</li>
+        <li>Led architectural security hardening and root-cause remediation after identifying a targeted RCE
+          vulnerability in production.</li>
       </ul>
     </div>
 
     <div class="entry">
       <div class="entry-head">
-        <span><span class="entry-title">Director &amp; Founder</span> · <span class="entry-org">Samisen Distributed Technologies</span></span>
+        <span><span class="entry-title">Director &amp; Co-Founder</span> · <span class="entry-org">Samisen Distributed Technologies</span></span>
         <span class="entry-date">Aug 2020 – Present · Hyderabad, India</span>
       </div>
       <ul>
-        <li>Built, scaled, and mentored distributed multi-timezone engineering teams, accelerating release velocity by 35% while maintaining on-time contract delivery generating $20K MRR.</li>
-        <li>Directed end-to-end delivery of 10+ business-critical software deployments spanning high-throughput enterprise applications, distributed systems, and secure payment processing verticals for US enterprise clients.</li>
-        <li>Established a bootstrapped AI &amp; software consulting firm delivering recurring engineering pipelines exclusively for mid-market and enterprise clients across the United States.</li>
-        <li>Spearheaded enterprise AI initiatives incorporating Retrieval-Augmented Generation (RAG), secure custom LLM integrations, and custom MCP data connectors on Azure AI Studio and C#/.NET.</li>
+        <li>Built and ran a bootstrapped AI and software consultancy end to end: a 16-person delivery team from
+          scratch, client relationships, delivery and budget — billing $350K across 10+ business-critical
+          deployments for mid-market and US enterprise clients.</li>
+        <li>Directed product delivery for <em>Eventonaut</em>, an AI conference navigator: RAG on LangChain with
+          Pinecone vector search, owning chunking, embedding strategy and grounded response quality.</li>
+        <li>Architected and delivered an Azure payment gateway processing $10M+ in monthly transaction volume,
+          with merchant portal, hosted payment pages and background reconciliation services.</li>
+        <li>Delivered secure LLM integrations and custom MCP data connectors on Azure AI Studio with C#/.NET.</li>
       </ul>
     </div>
 
@@ -339,42 +495,56 @@
             <span class="subrole-title">Director of Technology / Offshore Delivery Lead</span>
             <span class="subrole-date">Dec 2019 – May 2020 · Pune, India</span>
           </div>
-          <p>Directed cross-border delivery operations for premier global enterprise accounts, owning roadmap commitments and orchestrating engineering output to align with US product standards. Optimized engineering utilization and delivery metrics using KPIs and quality data to improve customer satisfaction across critical ERP implementations.</p>
+          <p>Created the India subsidiary and built its team to 12 — recruited the engineering side and converted
+            the existing QA contractors into subsidiary employees. Directed cross-border delivery for premier
+            global enterprise accounts, owning roadmap commitments and aligning engineering output to US product
+            standards, with KPI and quality data improving customer satisfaction across critical ERP
+            implementations.</p>
         </div>
         <div class="subrole">
           <div class="subrole-head">
             <span class="subrole-title">Technical Services Team Lead</span>
             <span class="subrole-date">Jan 2019 – Oct 2019 · St. Louis, MO</span>
           </div>
-          <p>Led, coached, and developed a global team of technical consultants delivering mission-critical ERP integrations, custom multi-tenant applications, and advanced reporting engines for 100+ venue and stadium clients worldwide.</p>
+          <p>Led, coached, and developed a global team of technical consultants delivering mission-critical ERP
+            integrations, custom multi-tenant applications, and advanced reporting engines for 100+ venue and
+            stadium clients worldwide.</p>
         </div>
         <div class="subrole">
           <div class="subrole-head">
             <span class="subrole-title">Lead Integration Architect</span>
             <span class="subrole-date">Oct 2015 – Dec 2018 · St. Louis, MO</span>
           </div>
-          <p>Owned the architectural vision and technical roadmap for core global payment processing; designed and deployed secure multi-model payment APIs processing high-volume credit card, ACH, and PCI-compliant financial streams. Engineered webhooks, e-signature extensions (DocuSign), and Twilio communications into core ERP engines; architected a resilient AWS-hosted cloud task automation network.</p>
+          <p>Owned the architectural vision and technical roadmap for core global payment processing; designed and
+            deployed secure multi-model payment APIs processing high-volume credit card, ACH, and PCI-compliant
+            financial streams. Engineered webhooks, e-signature extensions (DocuSign), and Twilio communications
+            into core ERP engines; architected a resilient AWS-hosted cloud task automation network.</p>
         </div>
         <div class="subrole">
           <div class="subrole-head">
             <span class="subrole-title">Senior Software Engineer</span>
             <span class="subrole-date">Apr 2012 – Sep 2015 · St. Louis, MO</span>
           </div>
-          <p>Architected and developed scalable ERP payment gateway APIs and customizable web applications. Delivered e-commerce, CMS, and registration modules using .NET, jQuery, and modern web technologies.</p>
+          <p>Architected and developed scalable ERP payment gateway APIs and customizable web applications.
+            Delivered e-commerce, CMS, and registration modules using .NET, jQuery, and modern web
+            technologies.</p>
         </div>
         <div class="subrole">
           <div class="subrole-head">
             <span class="subrole-title">Software Engineer — Web Applications</span>
             <span class="subrole-date">Jan 2010 – Mar 2012 · St. Louis, MO</span>
           </div>
-          <p>Developed membership, exhibition, payments, and registration modules for enterprise clients. Delivered responsive ASP.NET applications, ensuring strict adherence to Section 508 accessibility compliance.</p>
+          <p>Developed membership, exhibition, payments, and registration modules for enterprise clients.
+            Delivered responsive ASP.NET applications, ensuring strict adherence to Section 508 accessibility
+            compliance.</p>
         </div>
         <div class="subrole">
           <div class="subrole-head">
             <span class="subrole-title">Software Engineer — ERP Software</span>
             <span class="subrole-date">Jan 2007 – Dec 2009 · St. Louis, MO</span>
           </div>
-          <p>Built ERP modules for Service &amp; Work Orders, Inventory, Event Registration, and Housing. Optimized application performance through code refactoring and streamlined workflows.</p>
+          <p>Built ERP modules for Service &amp; Work Orders, Inventory, Event Registration, and Housing.
+            Optimized application performance through code refactoring and streamlined workflows.</p>
         </div>
       </div>
     </div>
@@ -386,68 +556,78 @@
     <h2>Skills</h2>
     <div class="skills-grid">
       <div class="skill-group">
-        <h3>Engineering Leadership &amp; Delivery</h3>
+        <h3>GenAI &amp; LLM systems</h3>
         <div class="chip-row">
-          <span class="chip">Team Leadership &amp; Coaching</span>
-          <span class="chip">Hiring &amp; Performance Management</span>
-          <span class="chip">Agile Delivery</span>
-          <span class="chip">Sprint Planning</span>
-          <span class="chip">Backlog Refinement</span>
-          <span class="chip">Cross-Functional Stakeholder Management</span>
-          <span class="chip">Roadmap Execution</span>
+          <span class="chip">LLM agents</span>
+          <span class="chip">Multi-agent orchestration (LangGraph)</span>
+          <span class="chip">Tool &amp; function calling</span>
+          <span class="chip">RAG</span>
+          <span class="chip">Embeddings &amp; vector search (Pinecone)</span>
+          <span class="chip">Evaluation &amp; observability (LangSmith)</span>
+          <span class="chip">MCP integrations</span>
+          <span class="chip">Prompt engineering</span>
+          <span class="chip">Multi-model routing</span>
+          <span class="chip">Azure AI Studio</span>
         </div>
       </div>
       <div class="skill-group">
-        <h3>Architecture &amp; Cloud Engineering</h3>
+        <h3>Architecture &amp; cloud</h3>
         <div class="chip-row">
-          <span class="chip">Microservices</span>
-          <span class="chip">Distributed Systems</span>
-          <span class="chip">AWS EKS</span>
+          <span class="chip">Microservices &amp; distributed systems</span>
+          <span class="chip">AWS EKS / Kubernetes</span>
           <span class="chip">Azure</span>
-          <span class="chip">DevOps &amp; CI/CD</span>
+          <span class="chip">CI/CD</span>
           <span class="chip">Observability</span>
+          <span class="chip">PCI DSS</span>
           <span class="chip">SOC 2</span>
-          <span class="chip">PCI Compliance</span>
+          <span class="chip">Security hardening &amp; RCA</span>
         </div>
       </div>
       <div class="skill-group">
-        <h3>Quality &amp; Full-Stack</h3>
+        <h3>Engineering &amp; delivery</h3>
         <div class="chip-row">
-          <span class="chip">Engineering Metrics &amp; RCA</span>
-          <span class="chip">Enterprise SaaS / ERP Delivery</span>
-          <span class="chip">Payment Gateways</span>
-          <span class="chip">C#</span>
+          <span class="chip">C# / .NET</span>
+          <span class="chip">TypeScript &amp; Node.js</span>
+          <span class="chip">Next.js / React / React Native</span>
           <span class="chip">Python</span>
-          <span class="chip">Node.js</span>
-          <span class="chip">TypeScript</span>
-          <span class="chip">SQL Server</span>
-          <span class="chip">MongoDB Atlas</span>
+          <span class="chip">SQL Server &amp; MongoDB Atlas</span>
+          <span class="chip">Hiring, coaching &amp; performance management</span>
+          <span class="chip">Roadmap &amp; delivery KPIs</span>
+          <span class="chip">Cross-border &amp; offshore delivery</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="projects">
+<section id="resume">
   <div class="wrap">
-    <h2>Projects</h2>
-
-    <div class="project">
-      <div>
-        <p class="project-name">UniCoach</p>
-        <p>Profile-building platform for university applications — activity tracking, evidence, AI-matched opportunities. Next.js 15, Supabase, Claude, Stripe.</p>
+    <h2>Resume</h2>
+    <p class="section-note">Two versions of the same facts, ordered for the role you are hiring for.</p>
+    <div class="resume-actions">
+      <div class="resume-card">
+        <p class="label">IC — Architect / Principal Engineer</p>
+        <p>Leads with hands-on architecture and shipping: agents, RAG, evaluation, platform work.</p>
+        <div class="project-actions">
+          <a class="project-link" href="assets/Prashant_Anand_Resume_IC.pdf" target="_blank" rel="noopener">Download PDF</a>
+          <a class="project-link" href="assets/Prashant_Anand_Resume_IC.docx">DOCX</a>
+        </div>
       </div>
-      <a class="project-link" href="https://github.com/prashant-anand/unicoach" target="_blank" rel="noopener">
-        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-        GitHub
-      </a>
+      <div class="resume-card">
+        <p class="label">Leadership — Associate Director / Director</p>
+        <p>Leads with organisation and delivery scope; GenAI depth as the differentiator.</p>
+        <div class="project-actions">
+          <a class="project-link" href="assets/Prashant_Anand_Resume_Dir.pdf" target="_blank" rel="noopener">Download PDF</a>
+          <a class="project-link" href="assets/Prashant_Anand_Resume_Dir.docx">DOCX</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="education">
   <div class="wrap">
-    <h2>Education &amp; Certifications</h2>
+    <h2>Education &amp; Credentials</h2>
     <div class="edu-item">
       <div class="degree">MBA, Executive Business Administration</div>
       <div class="school">Olin Business School, Washington University in St. Louis</div>
